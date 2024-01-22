@@ -1,0 +1,35 @@
+package lastTest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class lastTest1 {
+
+public static WebDriver driver;
+	
+	@BeforeMethod
+	public void initDriver() {
+		System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().deleteAllCookies();
+		driver.get("https://qa.codefios.com/login");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+	
+	
+	@Test
+	public void loginMethod() {
+		driver.findElement(By.xpath("//input[@id='user_name']")).sendKeys("demo1@codefios.com");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("abc123");
+		driver.findElement(By.xpath("//button[@id='login_submit']")).click();
+		System.out.println("i am on dashboard");
+	}
+	
+}
