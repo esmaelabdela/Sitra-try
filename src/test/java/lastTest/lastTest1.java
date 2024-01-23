@@ -20,7 +20,8 @@ public static WebDriver driver;
 		driver.get("https://qa.codefios.com/login");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+		
 	}
 	
 	
@@ -29,7 +30,7 @@ public static WebDriver driver;
 		driver.findElement(By.xpath("//input[@id='user_name']")).sendKeys("demo1@codefios.com");
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("abc123");
 		driver.findElement(By.xpath("//button[@id='login_submit']")).click();
-		System.out.println("i am on dashboard");
+		System.out.println("i am on dashboard pagge");
 	}
 	
 }
